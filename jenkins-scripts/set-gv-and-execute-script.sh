@@ -20,7 +20,7 @@ FARM_ID="<ID of the target Farm>"
 # which Farm Role(s) execute the deployment script.
 DEPLOY_SCRIPT_ID="<ID of the Script used to deploy the app>"
 DEPLOY_SCRIPT_TIMEOUT="180"
-DEPLOY_SCIRPT_MODE="1"  # (1 = async, 0 = sync)
+DEPLOY_SCRIPT_MODE="1"  # (1 = async, 0 = sync)
 
 # Actual script starts here
 pip install scalr
@@ -29,5 +29,5 @@ scalr -i "${SCALR_API_KEY_ID}" -a "${SCALR_API_KEY_SECRET}" -u "${SCALR_API_URL}
   "set-global-variable" -k "JENKINS_LAST_BUILD" -v "${BUILD_ID}" -f "${FARM_ID}"
 
 scalr -i "${SCALR_API_KEY_ID}" -a "${SCALR_API_KEY_SECRET}" -u "${SCALR_API_URL}" -e "${SCALR_API_ENV_ID}" \
-  "execute-script" -e "${DEPLOY_SCRIPT_ID}" -t "${DEPLOY_SCRIPT_TIMEOUT}" -a "${DEPLOY_SCIRPT_MODE}" -f "${FARM_ID}"
+  "execute-script" -e "${DEPLOY_SCRIPT_ID}" -t "${DEPLOY_SCRIPT_TIMEOUT}" -a "${DEPLOY_SCRIPT_MODE}" -f "${FARM_ID}"
 
