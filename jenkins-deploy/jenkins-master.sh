@@ -15,7 +15,7 @@ chown "${JENKINS_USER}:${JENKINS_USER}" "${JENKINS_HOME}"
 
 if which apt-get; then
   apt-get update
-  apt-get install -y wget
+  apt-get install -y wget daemon
 
   wget "http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.3_all.deb"
   dpkg -i jenkins_1.651.3_all.deb
