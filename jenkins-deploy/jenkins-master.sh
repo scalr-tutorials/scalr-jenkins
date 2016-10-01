@@ -17,21 +17,14 @@ if which apt-get; then
   apt-get update
   apt-get install -y wget
 
-  wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-  echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
-
-  apt-get update
-  apt-get install -y "jenkins"
-
+  wget "http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.3_all.deb"
+  dpkg -i jenkins_1.651.3_all.deb
 
 elif which yum; then
   yum install -y wget
 
-  wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-  rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-
-  yum install -y "jenkins"
-
+  wget "http://pkg.jenkins-ci.org/redhat-stable/jenkins-1.651.3-1.1.noarch.rpm"
+  rpm -ivh jenkins-1.651.3-1.1.noarch.rpm
 
 else
   echo "Unsupported distribution!"
@@ -40,3 +33,4 @@ fi
 
 service jenkins start || true   # Just make sure it's running
 service jenkins status          # Check what the status
+
