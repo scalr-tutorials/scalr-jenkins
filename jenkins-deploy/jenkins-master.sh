@@ -31,6 +31,8 @@ else
   exit 1
 fi
 
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
 service jenkins start || true   # Just make sure it's running
 service jenkins status          # Check what the status
 
