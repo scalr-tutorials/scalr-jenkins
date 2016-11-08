@@ -8,6 +8,7 @@ set -o nounset
 if which apt-get; then
   apt-get update
   apt-get install -y apache2
+  service apache2 restart
 elif which yum; then
   yum -y install httpd
 else
