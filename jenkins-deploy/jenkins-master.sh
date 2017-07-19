@@ -17,7 +17,7 @@ if which apt-get; then
   apt-get update
   apt-get install -y wget daemon
 
-  wget "http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.3_all.deb"
+  wget "https://github.com/scalr-tutorials/scalr-jenkins/raw/master/jenkins-deploy/jenkins_1.651.3_all.deb"
   dpkg -i jenkins_1.651.3_all.deb
 
 elif which yum; then
